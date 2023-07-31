@@ -31,7 +31,6 @@ else if(decision == "derecha"){
 
     decision1 = prompt("Te encuentras con un bosque, quieres entrar? si/no") .toLowerCase()
 
-
     while(decision1 != "si" && decision1 != "no"){
         decision1 = prompt("Tu eleccion no es valida, Te encuentras con un bosque, quieres entrar? si/no") .toLowerCase()
     }
