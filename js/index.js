@@ -44,7 +44,7 @@ function solicitarNombre() {
   
   //la funcion que abarca a las demas funciones
   function jugarJuego() {
-    let nombreJugador = solicitarNombre();
+    solicitarNombre();
     let decision = pedirDecision("Comenzaste tu camino, quieres ir a la derecha o a la izquierda?");
     
     if (decision === "izquierda") {
