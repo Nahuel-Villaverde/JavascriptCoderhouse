@@ -1,7 +1,7 @@
 //le pido el nombre al usuario
 function solicitarNombre() {
     let nombreJugador = prompt("Cual es tu nombre?").toLowerCase();
-    alert("Bienvenido " + nombreJugador);
+    alert(`Bienvenido  ${nombreJugador}`);
     return nombreJugador;
   }
   
