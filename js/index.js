@@ -1,44 +1,58 @@
-let nombreJugador 
-let decision
-let decision1
-
-nombreJugador= prompt("Cual es tu nombre?") .toLowerCase()
-alert("Bienvenido " + nombreJugador)
-
-decision = prompt("Comenzaste tu camino, quieres ir a la derecha o a la izquierda?") .toLowerCase()
-
-while(decision != "derecha" && decision != "izquierda"){
-    decision = prompt("Tu eleccion no es valida, ingrese derecha o izquierda") .toLowerCase()
-}
-
-if(decision == "izquierda"){
-
-    decision1 = prompt("Te encuentras con una cueva, quieres entrar? si/no") .toLowerCase()
-
-    while(decision1 != "si" && decision1 != "no"){
-        decision1 = prompt("Tu eleccion no es valida, Te encuentras con una cueva, quieres entrar? si/no") .toLowerCase()
+//le pido el nombre al usuario
+function solicitarNombre() {
+    let nombreJugador = prompt("Cual es tu nombre?").toLowerCase();
+    alert("Bienvenido " + nombreJugador);
+    return nombreJugador;
+  }
+  
+//pido la primera decision y la valido  
+  function pedirDecision(mensaje) {
+    let decision = prompt(mensaje).toLowerCase();
+    while (decision !== "derecha" && decision !== "izquierda") {
+      decision = prompt("Tu eleccion no es valida, ingrese derecha o izquierda").toLowerCase();
     }
+    return decision;
+  }
 
-    if(decision1 == "si"){
-        alert("Entraste a la cueva y encontraste un cofre lleno de oro!!!")
+  function pedirDecision2(mensaje) {
+    let decision2 = prompt(mensaje).toLowerCase();
+    while (decision2 !== "si" && decision2 !== "no") {
+      decision2 = prompt("Tu eleccion no es valida, ingrese derecha o izquierda").toLowerCase();
     }
-    else if(decision1 == "no"){
-        alert("No entraste a la cueva, sigues buscando una aventura")
+    return decision2;
+  }
+  
+//el primer posible resultado de la eleccion 
+  function explorarCueva() {
+    let decision2 = pedirDecision2("Te encuentras con una cueva, quieres entrar? si/no");
+    if (decision2 === "si") {
+      alert("Entraste a la cueva y encontraste un cofre lleno de oro!!!");
+    } else if (decision2 === "no") {
+      alert("No entraste a la cueva, sigues buscando una aventura");
     }
-}
-
-else if(decision == "derecha"){
-
-    decision1 = prompt("Te encuentras con un bosque, quieres entrar? si/no") .toLowerCase()
-
-    while(decision1 != "si" && decision1 != "no"){
-        decision1 = prompt("Tu eleccion no es valida, Te encuentras con un bosque, quieres entrar? si/no") .toLowerCase()
+  }
+  
+  ///el segundo posible resultado de la eleccion 
+  function explorarBosque() {
+    let decision2 = pedirDecision2("Te encuentras con un bosque, quieres entrar? si/no");
+    if (decision2 === "si") {
+      alert("Entraste al bosque y te mató una serpiente gigante");
+    } else if (decision2 === "no") {
+      alert("No entraste al bosque");
     }
-
-    if(decision1 == "si"){
-        alert("Entraste al bosque y te mató una serpiente gigante")
+  }
+  
+  //la funcion que abarca a las demas funciones
+  function jugarJuego() {
+    let nombreJugador = solicitarNombre();
+    let decision = pedirDecision("Comenzaste tu camino, quieres ir a la derecha o a la izquierda?");
+    
+    if (decision === "izquierda") {
+      explorarCueva();
+    } else if (decision === "derecha") {
+      explorarBosque();
     }
-    else if(decision1 == "no"){
-        alert("No entraste al bosque")
-    }
-}
+  }
+  
+  // Llamo a la función para iniciar el juego
+  jugarJuego();
