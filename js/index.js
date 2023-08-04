@@ -17,7 +17,7 @@ function solicitarNombre() {
   function pedirDecision2(mensaje) {
     let decision2 = prompt(mensaje).toLowerCase();
     while (decision2 !== "si" && decision2 !== "no") {
-      decision2 = prompt("Tu eleccion no es valida, ingrese derecha o izquierda").toLowerCase();
+      decision2 = prompt("Tu eleccion no es valida, ingrese si o no").toLowerCase();
     }
     return decision2;
   }
