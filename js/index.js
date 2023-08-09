@@ -27,11 +27,7 @@ function ingresarNota() {
     return notaIngresada;
 }
 
-
-const nombreUsuario = prompt("Cual es tu nombre?").toLowerCase();
-alert(`Bienvenido al registro de notas de los alumnos, ${nombreUsuario}`);
-
-while (respuesta === "si") {
+function registrarAlumno(){
     nombre = prompt("Ingrese el nombre del alumno");
 
     materia = prompt("Ingrese la materia del alumno (matematica, literatura o biologia)").toLowerCase();
@@ -65,24 +61,37 @@ while (respuesta === "si") {
         banderaNotaMenor = 1;
     }
 
+    console.log("El alumno con la menor nota fue " + nombreMenorNota + " con un " + menorNota);
+}
+
+function contadores(){
+    if (contadorMatematica > contadorLiteratura && contadorMatematica > contadorBiologia) {
+        materiaMasElegida = "matematica";
+        vecesMateriaMasElegida = contadorMatematica;
+    
+    } else if (contadorLiteratura > contadorBiologia) {
+        materiaMasElegida = "literatura";
+        vecesMateriaMasElegida = contadorLiteratura;
+    
+    } else {
+        materiaMasElegida = "biologia";
+        vecesMateriaMasElegida = contadorBiologia;
+    }
+
+    console.log("La materia mas elegida fue " + materiaMasElegida + " con un total de " + vecesMateriaMasElegida);
+}
+
+
+
+const nombreUsuario = prompt("Cual es tu nombre?").toLowerCase();
+alert(`Bienvenido al registro de notas de los alumnos, ${nombreUsuario}`);
+
+while (respuesta === "si") {
+    registrarAlumno();
     respuesta = prompt("Desea continuar agregando alumnos?");
 }
 
-if (contadorMatematica > contadorLiteratura && contadorMatematica > contadorBiologia) {
-    materiaMasElegida = "matematica";
-    vecesMateriaMasElegida = contadorMatematica;
-
-} else if (contadorLiteratura > contadorBiologia) {
-    materiaMasElegida = "literatura";
-    vecesMateriaMasElegida = contadorLiteratura;
-
-} else {
-    materiaMasElegida = "biologia";
-    vecesMateriaMasElegida = contadorBiologia;
-}
-
-console.log("La materia mas elegida fue " + materiaMasElegida);
-console.log("El alumno con la menor nota fue " + nombreMenorNota);
+contadores();
 
 alert("La materia mas elegida fue " + materiaMasElegida + " con un total de " + vecesMateriaMasElegida);
 alert("El alumno con la menor nota fue " + nombreMenorNota + " con un " + menorNota);
