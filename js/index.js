@@ -1,58 +1,88 @@
-//le pido el nombre al usuario
-function solicitarNombre() {
-    let nombreJugador = prompt("Cual es tu nombre?").toLowerCase();
-    alert(`Bienvenido  ${nombreJugador}`);
-    return nombreJugador;
-  }
-  
-//pido la primera decision y la valido  
-  function pedirDecision(mensaje) {
-    let decision = prompt(mensaje).toLowerCase();
-    while (decision !== "derecha" && decision !== "izquierda") {
-      decision = prompt("Tu eleccion no es valida, ingrese derecha o izquierda").toLowerCase();
-    }
-    return decision;
-  }
+let materia;
+let nombre;
+let respuesta = "si";
+let nota = 0;
+let legajo;
 
-  function pedirDecision2(mensaje) {
-    let decision2 = prompt(mensaje).toLowerCase();
-    while (decision2 !== "si" && decision2 !== "no") {
-      decision2 = prompt("Tu eleccion no es valida, ingrese si o no").toLowerCase();
+let contadorMatematica = 0;
+let contadorLiteratura = 0;
+let contadorBiologia = 0;
+let materiaMasElegida;
+let vecesMateriaMasElegida;
+
+let banderaNotaMenor = 0;
+let menorNota;
+let nombreMenorNota;
+
+
+function validarMateria(inputMateria) {
+    return inputMateria === "matematica" || inputMateria === "literatura" || inputMateria === "biologia";
+}
+
+function ingresarNota() {
+    let notaIngresada = parseInt(prompt("Ingrese la nota del alumno (1 - 10)"));
+    while (!(notaIngresada >= 1 && notaIngresada <= 10)) {
+        notaIngresada = parseInt(prompt("Reingrese la nota del alumno (1 - 10)"));
     }
-    return decision2;
-  }
-  
-//el primer posible resultado de la eleccion 
-  function explorarCueva() {
-    let decision2 = pedirDecision2("Te encuentras con una cueva, quieres entrar? si/no");
-    if (decision2 === "si") {
-      alert("Entraste a la cueva y encontraste un cofre lleno de oro!!!");
-    } else if (decision2 === "no") {
-      alert("No entraste a la cueva, sigues buscando una aventura");
+    return notaIngresada;
+}
+
+
+let nombreUsuario = prompt("Cual es tu nombre?").toLowerCase();
+alert(`Bienvenido al registro de notas de los alumnos, ${nombreUsuario}`);
+
+while (respuesta === "si") {
+    nombre = prompt("Ingrese el nombre del alumno");
+
+    materia = prompt("Ingrese la materia del alumno (matematica, literatura o biologia)").toLowerCase();
+    while (!validarMateria(materia)) {
+        materia = prompt("Reingrese el nombre de la materia (matematica, literatura o biologia)").toLowerCase();
     }
-  }
-  
-  ///el segundo posible resultado de la eleccion 
-  function explorarBosque() {
-    let decision2 = pedirDecision2("Te encuentras con un bosque, quieres entrar? si/no");
-    if (decision2 === "si") {
-      alert("Entraste al bosque y te mató una serpiente gigante");
-    } else if (decision2 === "no") {
-      alert("No entraste al bosque");
+
+    console.log(materia)
+    nota = ingresarNota();
+    console.log(nota)
+
+    legajo = prompt("Ingrese el legajo del alumno");
+
+    switch (materia) {
+        case "matematica":
+            contadorMatematica++;
+            break;
+
+        case "literatura":
+            contadorLiteratura++;
+            break;
+
+        case "biologia":
+            contadorBiologia++;
+            break;
     }
-  }
-  
-  //la funcion que abarca a las demas funciones
-  function jugarJuego() {
-    solicitarNombre();
-    let decision = pedirDecision("Comenzaste tu camino, quieres ir a la derecha o a la izquierda?");
-    
-    if (decision === "izquierda") {
-      explorarCueva();
-    } else if (decision === "derecha") {
-      explorarBosque();
+
+    if (banderaNotaMenor === 0 || nota < menorNota) {
+        menorNota = nota;
+        nombreMenorNota = nombre;
+        banderaNotaMenor = 1;
     }
-  }
-  
-  // Llamo a la función para iniciar el juego
-  jugarJuego();
+
+    respuesta = prompt("Desea continuar agregando alumnos?");
+}
+
+if (contadorMatematica > contadorLiteratura && contadorMatematica > contadorBiologia) {
+    materiaMasElegida = "matematica";
+    vecesMateriaMasElegida = contadorMatematica;
+
+} else if (contadorLiteratura > contadorBiologia) {
+    materiaMasElegida = "literatura";
+    vecesMateriaMasElegida = contadorLiteratura;
+
+} else {
+    materiaMasElegida = "biologia";
+    vecesMateriaMasElegida = contadorBiologia;
+}
+
+console.log("La materia mas elegida fue " + materiaMasElegida);
+console.log("El alumno con la menor nota fue " + nombreMenorNota);
+
+alert("La materia mas elegida fue " + materiaMasElegida + " con un total de " + vecesMateriaMasElegida);
+alert("El alumno con la menor nota fue " + nombreMenorNota + " con un " + menorNota);
