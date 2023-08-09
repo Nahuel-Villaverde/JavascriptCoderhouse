@@ -28,7 +28,7 @@ function ingresarNota() {
 }
 
 
-let nombreUsuario = prompt("Cual es tu nombre?").toLowerCase();
+const nombreUsuario = prompt("Cual es tu nombre?").toLowerCase();
 alert(`Bienvenido al registro de notas de los alumnos, ${nombreUsuario}`);
 
 while (respuesta === "si") {
