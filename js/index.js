@@ -1,97 +1,63 @@
-let materia;
-let nombre;
-let respuesta = "si";
-let nota = 0;
-let legajo;
+const personas = [
+  { nombre: "Ana", edad: 25 },
+  { nombre: "Juan", edad: 30 },
+  { nombre: "María", edad: 28 },
+  { nombre: "Carlos", edad: 22 }
+];
 
-let contadorMatematica = 0;
-let contadorLiteratura = 0;
-let contadorBiologia = 0;
-let materiaMasElegida;
-let vecesMateriaMasElegida;
+const filtrarMayores = (edadMinima) => {
+  return personas.filter(persona => persona.edad >= edadMinima);
+};
 
-let banderaNotaMenor = 0;
-let menorNota;
-let nombreMenorNota;
-
-
-function validarMateria(inputMateria) {
-    return inputMateria === "matematica" || inputMateria === "literatura" || inputMateria === "biologia";
+function buscarPersonaPorNombre(nombre) {
+  return personas.find(persona => persona.nombre === nombre);
 }
 
-function ingresarNota() {
-    let notaIngresada = parseInt(prompt("Ingrese la nota del alumno (1 - 10)"));
-    while (!(notaIngresada >= 1 && notaIngresada <= 10)) {
-        notaIngresada = parseInt(prompt("Reingrese la nota del alumno (1 - 10)"));
-    }
-    return notaIngresada;
+let listaPersonas = "";
+
+for (const persona of personas) {
+  listaPersonas += `${persona.nombre} (Edad: ${persona.edad})\n`;
 }
 
-function registrarAlumno(){
-    nombre = prompt("Ingrese el nombre del alumno");
+alert(`Bienvenido al filtro de personas, podrás crear una persona, filtrar por edad y buscar un nombre. Lista de personas:\n${listaPersonas}`);
 
-    materia = prompt("Ingrese la materia del alumno (matematica, literatura o biologia)").toLowerCase();
-    while (!validarMateria(materia)) {
-        materia = prompt("Reingrese el nombre de la materia (matematica, literatura o biologia)").toLowerCase();
-    }
+const nuevoNombre = prompt("Ingresa el nombre de la nueva persona:");
+let nuevaEdad = parseInt(prompt("Ingresa la edad de la nueva persona:"));
 
-    console.log(materia)
-    nota = ingresarNota();
-    console.log(nota)
-
-    legajo = prompt("Ingrese el legajo del alumno");
-
-    switch (materia) {
-        case "matematica":
-            contadorMatematica++;
-            break;
-
-        case "literatura":
-            contadorLiteratura++;
-            break;
-
-        case "biologia":
-            contadorBiologia++;
-            break;
-    }
-
-    if (banderaNotaMenor === 0 || nota < menorNota) {
-        menorNota = nota;
-        nombreMenorNota = nombre;
-        banderaNotaMenor = 1;
-    }
-
-    console.log("El alumno con la menor nota fue " + nombreMenorNota + " con un " + menorNota);
+while (isNaN(nuevaEdad)) {
+  nuevaEdad = parseInt(prompt("No ingresó un numero, ingresa la edad de la nueva persona:"));
 }
 
-function contadores(){
-    if (contadorMatematica > contadorLiteratura && contadorMatematica > contadorBiologia) {
-        materiaMasElegida = "matematica";
-        vecesMateriaMasElegida = contadorMatematica;
-    
-    } else if (contadorLiteratura > contadorBiologia) {
-        materiaMasElegida = "literatura";
-        vecesMateriaMasElegida = contadorLiteratura;
-    
-    } else {
-        materiaMasElegida = "biologia";
-        vecesMateriaMasElegida = contadorBiologia;
-    }
+personas.push({ nombre: nuevoNombre, edad: nuevaEdad });
 
-    console.log("La materia mas elegida fue " + materiaMasElegida + " con un total de " + vecesMateriaMasElegida);
+let seguirFiltrando = true;
+
+while (seguirFiltrando) {
+
+  let personasMayoresDe = parseInt(prompt("Ingresa la edad minima que debe tener la gente para su filtro"));
+  while (isNaN(personasMayoresDe)) {
+    personasMayoresDe = parseInt(prompt("No ingresó un numero, ingresa la edad minima que debe tener la gente para su filtro"));
+  }
+
+  const filtroMayoresAplicado = filtrarMayores(personasMayoresDe);
+  const filtroMayoresAplicadoString = filtroMayoresAplicado.map(persona => `${persona.nombre} (Edad: ${persona.edad})`).join('\n');
+
+  alert("Personas mayores de " + personasMayoresDe + " años:\n" + filtroMayoresAplicadoString);
+
+  const nombreBuscado = prompt("Ingresa el nombre de la persona que deseas buscar:");
+  let personaBuscada = buscarPersonaPorNombre(nombreBuscado);
+
+
+  if (personaBuscada) {
+    personaBuscada = `${personaBuscada.nombre} (Edad: ${personaBuscada.edad})`;
+  } else {
+    personaBuscada = "No se encontró a la persona buscada";
+  }
+
+  alert("Persona buscada:\n" + personaBuscada);
+
+  const continuarFiltrando = confirm("¿Quieres realizar otro filtro?");
+  if (!continuarFiltrando) {
+    seguirFiltrando = false;
+  }
 }
-
-
-
-const nombreUsuario = prompt("Cual es tu nombre?").toLowerCase();
-alert(`Bienvenido al registro de notas de los alumnos, ${nombreUsuario}`);
-
-while (respuesta === "si") {
-    registrarAlumno();
-    respuesta = prompt("Desea continuar agregando alumnos?");
-}
-
-contadores();
-
-alert("La materia mas elegida fue " + materiaMasElegida + " con un total de " + vecesMateriaMasElegida);
-alert("El alumno con la menor nota fue " + nombreMenorNota + " con un " + menorNota);
