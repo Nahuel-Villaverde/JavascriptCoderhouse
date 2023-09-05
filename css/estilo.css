@@ -15,6 +15,18 @@ body{
     background-color: #18161D;
 }
 
+body::-webkit-scrollbar {
+  width: 0.5em; /* Ancho de la barra de desplazamiento */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent; /* Color de fondo de la pista de la barra de desplazamiento */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #8e5f3a; /* Color del pulgar de la barra de desplazamiento */
+}
+
 
 img{
     max-width: 100%;
@@ -55,6 +67,195 @@ nav{
     justify-content: space-around;
     align-items: center;
     height: 70px;
+}
+
+nav img{
+  width: 40px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+#miniMenu {
+  position: fixed;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: #18161D;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-out;
+  bottom: 0;
+  z-index: 1;
+}
+
+#miniMenu h1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.carro{
+  width: 178px;
+  cursor: pointer;
+}
+
+.cart-counter{
+    display: none;
+    position: absolute;    
+    top: 8px;
+    right: 250px;
+    color: #fff;
+    text-align: center;
+    background-color: #BC8252;
+    padding-bottom: 6px;
+    padding-left: 4px;
+    padding-right: 3px;
+    padding-top: 1px;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    font-size: 15px;
+    pointer-events: none;
+}
+
+.cerrar{
+  justify-content: end;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.cerrar img{
+  width: 20px; 
+}
+
+.moto_carrito{
+  color: rgb(255, 255, 255);
+  display: flex;
+  padding: 30px 15px;
+  padding-right: 10px;
+}
+
+.moto_carrito img{
+  width: 130px;
+}
+
+.delete-product{
+    cursor: pointer;
+}
+
+
+
+
+.tick-button {
+    padding: 10px 20px;
+    margin-top: 30px;
+    background-color: #008000; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .tick-overlay{
+    display: none;
+    background-color: rgba(17, 21, 17, 0.705); /* Fondo verde transparente al 50% */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+}
+
+.tick-img {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    height: 600px;
+    z-index: 6;
+  }
+
+  
+
+.texto_carrito{
+  padding-left: 10px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.texto_carrito h2 h3{
+  display: block ;
+}
+
+.moto_carrito h2{
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.moto_carrito h3{
+  font-size: 15px;
+  font-weight: 600;
+  padding-left: 10px;
+}
+
+.tacho{
+    display: flex;
+    width: 30px;
+    height: 22px;
+    padding-top: 20px;
+    min-width: 30px;
+}
+
+.linea{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.linea div{
+    height: 2px;
+    width: 250px;
+    background-color: #bc825296;
+}
+
+.total_carrito{
+    display: flex;
+    color: white;
+    font-size: 14px;
+    padding-top: 15px;
+    justify-content: end;
+    padding-right: 30px;
+}
+
+.comprar_carrito{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto 0 auto;
+    padding: 8px 16px;
+    background: #BC8252;
+    text-align: center;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+
+}
+
+.cantidad_motos_carrito{
+    margin-left: 5px;
+}
+
+.tacho img{
+    width: 25px;
 }
 
 ul{
@@ -228,3 +429,213 @@ footer{
 }
 
 
+
+.gradiente_producto{
+    background: linear-gradient(
+    90deg,
+    rgb(54, 33, 48) 0%,
+    rgb(45, 55, 62) 50%,
+    rgba(19,41,65,1) 100%
+    );
+
+    height: 236vh;
+}
+
+
+
+.modal-overlay{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    background-color: #18161D;
+    box-shadow: 0px 3px 6px #00000029;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    width: 100%;
+    z-index: 1;
+    max-height: 80vh;
+    overflow: auto;
+
+}
+
+.modal-container::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-close{
+    padding-left: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.product{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    color: #E9E9F1;
+}
+
+.product-img{
+    margin-right: 20px;
+    width: 120px;
+}
+
+.modal-header{
+    display: flex;
+}
+
+.modal-vacio{
+    display: flex;
+    color: #E9E9F1;
+    justify-content: center;
+}
+
+.modal_title{
+    display: flex;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #E9E9F1;
+    padding-left: 310px;
+}
+
+.quantity span{
+    font-size: 15px;
+}
+
+.quantity{
+    cursor: default;
+}
+
+.quantity-btn-decrese{
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.quantity-input{
+    cursor: default;
+    padding-left: 10px;
+}
+
+.quantity-btn-increse{
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.modal-footer{
+    text-align: center;
+    color: #E9E9F1;
+}
+
+
+.linea{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.linea div{
+    height: 2px;
+    width: 90%;
+    background-color: #BC8252;
+} 
+
+.total-price{
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.motos {
+    padding: 40px 0;
+    text-align: center;
+    color: #E9E9F1;
+    display: block;
+}
+
+.motos h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.grid-motos {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows: repeat(4, auto); 
+    gap: 20px;
+    justify-content: center;
+}
+
+.moto {
+    border: .5px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.moto img {
+    max-width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.moto h3 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.precio {
+    font-size: 20px;
+    color: #BC8252;
+    font-weight: bold;
+}
+
+
+.footer_producto {
+    position: absolute;
+    display: flex;
+    padding-top: 10px;
+    background-color: #18161D;
+    color: white;
+    height: 180px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    top: 1630px;
+}
+
+.agregar-btn {
+    margin-top: 10px;
+    padding: 7px 15px;
+    background-color: #BC8252;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px; /* Añade el radio de las esquinas */
+    transition: background-color 0.3s;
+}
+
+.agregar-btn:hover {
+    background-color: #A46A3E;
+}

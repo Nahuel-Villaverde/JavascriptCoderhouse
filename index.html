@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <div class="gradiente">
+    <div class="gradiente_producto">
         <header>
             <div class="encabezado">
                 <nav >
@@ -28,59 +28,87 @@
                     </ul>
                     
                     <ul class="paginas">
-                        <li class="nav_li"><a href="index.html">Inicio</a></li>
-                        <li class="nav_li"><a href="paginas/producto.html">Motos</a></li>
-                        <li class="nav_li"><a href="paginas/contacto.html">Contacto</a></li>
+                        <li class="nav_li"><a href="../index.html">Inicio</a></li>
+                        <li class="nav_li"><a href="../paginas/producto.html">Motos</a></li>
+                        <li class="nav_li"><a href="../paginas/contacto.html">Contacto</a></li>
                     </ul>
 
-                    <ul class="icono_carrito">
-                        <li> <img src="imagenes/carrito-de-compras.png" alt="carrito"> </li>
-                    </ul>
+                    <div class ="carro">
+                        <span class="cart-counter" id="cart-counter">0</span>
+                        <img id="cart-btn" src="imagenes/carrito-de-compras.png" alt="carrito">
+                    </div>
+
+                    
+
+                    <div id="miniMenu" class="hidden">
+                      
+                      <div class="cerrar">
+                        <img id="toggleClose" src="imagenes/icone-fermer-et-x-jaune.png" alt="cerrar">
+                      </div>
+                      <h1>Tu Carrito</h1> 
+
+                      <div class="motosParaComprar" id="motosCompradas">
+
+                      </div>
+
+                      
+
+                      <div class="linea">
+                        <div></div>
+                      </div>
+
+                      <p class="total_carrito">Total: $0</p>
+
+                      <button class="comprar_carrito">Comprar</button>
+
+                      
+
+                    </div>
+                    
 
                 </nav>
             </div>
-
         </header>
+        
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-container" id="modal-container"></div>
 
-        <section>
-            <div class="texto_principal">
-                <h1>Ofertas especiales</h1>
-                <p>Llevate tu moto favorita</p>
-                <img src="imagenes/motoedit.webp" alt="moto">
-                <h4>Zero SR/S</h4>
-                <div class= "boton">
-                    <a href="">Información</a>
-                </div>
-                
-            </div>
+        <div class="tick-overlay" id="tick-overlay"></div>
+        <img class = "tick-img" id="tick-img" src="./imagenes/tick-icon-accept-approve-sign-design-free-free-png.webp" alt="Tick">
 
+        <section class="motos">
+            <h2>MOTOS</h2>
+            
+                <div class="card-products grid-motos" id="shopContent"></div>
         </section>
     </div>
-    <footer>
+
+    <footer class="footer_producto">
         <div class="contenedor_footer">
-                <ul class="nombre_marca_footer">
-                    <li>
-                    <span>M</span>
-                    <span>o</span>
-                    <span>t</span>
-                    <span>o</span>
-                    <span>r</span>
-                    <span>C</span>
-                    <span>y</span>
-                    <span>c</span>
-                    <span>l</span>
-                    <span>e</span>
-                </li>
-                </ul>
-            <p>Somos MotorCycle, brindamos las mejores motos del mercado. Encuentranos en Av. La Plata 683, C1235 CABA</p>
-            <div class="contenedor_redes">
-                <a href="">Whatsapp</a>
-                <a href="">Instagram</a>
-                <a href="">Facebook</a>
-            </div>
+            <ul class="nombre_marca_footer">
+                <li>
+                <span>M</span>
+                <span>o</span>
+                <span>t</span>
+                <span>o</span>
+                <span>r</span>
+                <span>C</span>
+                <span>y</span>
+                <span>c</span>
+                <span>l</span>
+                <span>e</span>
+            </li>
+            </ul>
+        <p>Somos MotorCycle, brindamos las mejores motos del mercado. Encuentranos en Av. La Plata 683, C1235 CABA</p>
+        <div class="contenedor_redes">
+            <a href="">Whatsapp</a>
+            <a href="">Instagram</a>
+            <a href="">Facebook</a>
         </div>
     </footer>
 
-    <script  src="js/index.js" ></script>
+    <script src="js/productos.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 </html>
