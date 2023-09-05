@@ -1,4 +1,4 @@
-const productos = [
+/* const productos = [
     {
       id: 1,
       productName: "Zero SR/S",
@@ -96,6 +96,31 @@ const productos = [
     },
     
   ];
+   */
+
   
+  class Moto {
+  constructor(id, productName, price, quantity, img) {
+    this.id = id;
+    this.productName = productName;
+    this.price = price;
+    this.quantity = quantity;
+    this.img = img;
+    }
+  }
   
-  
+  // Crea instancias de Producto para cada producto
+  const productos = [
+    new Moto(1, "Zero SR/S", 25000, 1, "./imagenes/motoedit.webp"),
+    new Moto(2, "Yamaha R6", 23000, 1, "./imagenes/motorcycle-7185571_1280.webp"),
+    new Moto(3, "Beta AKVO", 19000, 1, "./imagenes/beta_akvo_200_rr_carenada_2020_0.png"),
+    new Moto(4, "Kawasaki Ninja", 30000, 1, "./imagenes/kawasaki_ninja_400.png"),
+    new Moto(5, "Honda CBR250R", 21000, 1, "./imagenes/CBR250R_8.png"),
+    new Moto(6, "Falkon 250", 13000, 1, "./imagenes/IGM-red_5.png"),
+    new Moto(7, "Nexus 200rr", 27000, 1, "./imagenes/nexus-200rr-rojo.png"),
+    new Moto(8, "RZ MT 650", 20000, 1, "./imagenes/rz-650mt_color1-11-25515b5357d168314d16801221055345-640-0.png"),
+    new Moto(9, "Guzzi V100", 15000, 1, "./imagenes/V100-Mandello-blanca.png"),
+    new Moto(10, "Guzzi V85", 12000, 1, "./imagenes/tab_V85_TT_verde.png"),
+    new Moto(11, "Pulsar Rs 200", 23000, 1, "./imagenes/RS 200 1640-x-997-con-luz.png"),
+    new Moto(12, "Yamaha R3", 20000, 1, "./imagenes/yamaha-r3a-9.webp"),
+  ];

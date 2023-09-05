@@ -1,3 +1,7 @@
+/* import products from "./json/productos.json";
+
+const product = products; */
+
 const shopContent = document.getElementById("shopContent");
 
 //get item
