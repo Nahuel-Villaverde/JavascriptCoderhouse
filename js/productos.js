@@ -98,7 +98,7 @@
   ];
    */
 
-  
+/*   
   class Moto {
   constructor(id, productName, price, quantity, img) {
     this.id = id;
@@ -123,4 +123,4 @@
     new Moto(10, "Guzzi V85", 12000, 1, "./imagenes/tab_V85_TT_verde.png"),
     new Moto(11, "Pulsar Rs 200", 23000, 1, "./imagenes/RS 200 1640-x-997-con-luz.png"),
     new Moto(12, "Yamaha R3", 20000, 1, "./imagenes/yamaha-r3a-9.webp"),
-  ];
+  ]; */

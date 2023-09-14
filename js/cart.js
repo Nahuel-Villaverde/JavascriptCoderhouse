@@ -107,15 +107,13 @@ const displayCart = () => {
             modalContainer.style.display = "none";
             modalOverlay.style.display = "none";
           
-            // Muestra el tick (esto ya está en tu código)
-            tickOverlay.style.display = "block";
-            tickImg.style.display = "block";
-          
-            // Configura un temporizador para ocultar el tick después de 1 segundo
-            setTimeout(function () {
-              tickOverlay.style.display = "none";
-              tickImg.style.display = "none";
-            }, 1000);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'La compra fue exitosa',
+                showConfirmButton: false,
+                timer: 2500
+              })
 
             saveLocal();
           });
