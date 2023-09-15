@@ -113,9 +113,9 @@ const displayCart = () => {
                 title: 'La compra fue exitosa',
                 showConfirmButton: false,
                 timer: 2500
-              })
+            })
 
-            saveLocal();
+            localStorage.removeItem("cart");
           });
 
 
